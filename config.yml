@@ -3,7 +3,7 @@ gui:
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never
+    pager: diff-so-fancy
 os:
   editPreset: 'nvim'
 theme:
