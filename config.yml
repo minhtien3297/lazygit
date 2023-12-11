@@ -71,10 +71,6 @@ customCommands:
             description: "Adding missing tests or correcting existing tests"
             value: "test"
       - type: "input"
-        title: "ID"
-        key: "ID"
-        initialValue: ""
-      - type: "input"
         title: "message"
         key: "Message"
         initialValue: ""
@@ -82,6 +78,6 @@ customCommands:
         key: "Confirm"
         title: "Commit"
         body: "Are you sure you want to commit?"
-    command: "git commit --message '[{{.Form.ID}}][{{.Form.Type}}]: {{.Form.Message}}'"
+    command: "git commit --message '[{{.Form.Type}}]: {{.Form.Message}}'"
     loadingText: "Creating conventional commit..."
     stream: true
