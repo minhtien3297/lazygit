@@ -81,3 +81,19 @@ customCommands:
     command: "git commit --message '[{{.Form.Type}}]: {{.Form.Message}}'"
     loadingText: "Creating conventional commit..."
     stream: true
+  - key: '<c-p>'
+    description: "Rebase from specific remote and branch"
+    context: 'files'
+    loadingText: 'Rebasing ...'
+    prompts:
+      - type: 'input'
+        key: 'Remote'
+        title: "Remote:"
+        suggestions:
+          preset: 'remotes'
+      - type: 'input'
+        key: 'RemoteBranch'
+        title: "Remote branch:"
+        suggestions:
+          command: "git branch --remote --list '{{.Form.Remote}}/*' --format='%(refname:short)' | sed 's/{{.Form.Remote}}\\///'"
+    command: git stash && git fetch {{ .Form.Remote }} {{ .Form.RemoteBranch }} && git rebase {{ .Form.Remote }}/{{ .Form.RemoteBranch }} && git stash pop
