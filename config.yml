@@ -83,7 +83,7 @@ customCommands:
     stream: true
   - key: '<c-p>'
     description: "Rebase from specific remote and branch"
-    context: 'files'
+    context: 'global'
     loadingText: 'Rebasing ...'
     prompts:
       - type: 'input'
